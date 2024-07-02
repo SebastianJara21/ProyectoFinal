@@ -13,6 +13,6 @@ public class ProyectoFinal {
     public static void main(String[] args) {
         //hola 123
         System.out.println("hola");
-        sexo sexo
+        sout
     }
 }
