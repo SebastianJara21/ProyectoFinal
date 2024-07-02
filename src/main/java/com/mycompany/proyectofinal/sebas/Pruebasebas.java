@@ -9,5 +9,5 @@ package com.mycompany.proyectofinal.sebas;
  * @author Usuario
  */
 public class Pruebasebas {
-    
+    hola uwu aña parangaricutirimicuaro
 }
