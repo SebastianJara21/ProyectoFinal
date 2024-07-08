@@ -9,5 +9,14 @@ package Clases;
  * @author Melanie Guaman
  */
 public class Silla {
+    private int numSilla;
+    private String ubiSilla;
+    private String claseSilla;
+
+    public Silla(int numSilla, String ubiSilla, String claseSilla) {
+        this.numSilla = numSilla;
+        this.ubiSilla = ubiSilla;
+        this.claseSilla = claseSilla;
+    }
     
 }
