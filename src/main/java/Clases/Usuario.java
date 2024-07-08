@@ -8,6 +8,14 @@ package Clases;
  *
  * @author Melanie Guaman
  */
-public class Usuario {
+public class Usuario extends Padre{
+    private String email;
+
+
+    public Usuario(String email, int ced, String nom, int edad, String direcc) {
+        super(ced, nom, edad, direcc);
+        this.email = email;
+    }
+    
     
 }

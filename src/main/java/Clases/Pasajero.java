@@ -8,18 +8,17 @@ package Clases;
  *
  * @author Melanie Guaman
  */
-public class Pasajero {
-    private int ced;
-    private String nom;
-    private int edad;
-    private String direcc;
+public class Pasajero extends Padre{
 
-    public Pasajero(int ced, String nom, int edad, String direcc) {
-        this.ced = ced;
-        this.nom = nom;
-        this.edad = edad;
-        this.direcc = direcc;
+    private int id;
+    private String clase;
+    private int numFicha;
+    
+    public Pasajero(int id, String clase, int numFicha, int ced, String nom, int edad, String direcc) {
+        super(ced, nom, edad, direcc);
+        this.id = id;
+        this.clase = clase;
+        this.numFicha = numFicha;
     }
-    
-    
+ 
 }
