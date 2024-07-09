@@ -8,7 +8,7 @@ package Clases;
  *
  * @author Melanie Guaman
  */
-public class Usuario extends Padre{
+public class Usuario extends Persona{
     private String email;
 
 

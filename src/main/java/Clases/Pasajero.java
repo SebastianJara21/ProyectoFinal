@@ -8,7 +8,7 @@ package Clases;
  *
  * @author Melanie Guaman
  */
-public class Pasajero extends Padre{
+public class Pasajero extends Persona{
 
     private int id;
     private String clase;
