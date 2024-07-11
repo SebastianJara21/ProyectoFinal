@@ -764,22 +764,22 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton67">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton7"/>
+        <Property name="text" type="java.lang.String" value="Buscar cliente"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton69">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton7"/>
+        <Property name="text" type="java.lang.String" value="Asignar silla"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton71">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton7"/>
+        <Property name="text" type="java.lang.String" value="Agregar usuario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton73">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton7"/>
+        <Property name="text" type="java.lang.String" value="Limpiar silla"/>
       </Properties>
     </Component>
   </SubComponents>

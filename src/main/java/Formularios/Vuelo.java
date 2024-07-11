@@ -257,13 +257,13 @@ public class Vuelo extends javax.swing.JFrame {
         s49.setFont(new java.awt.Font("Cambria", 1, 8)); // NOI18N
         s49.setText("49");
 
-        jButton67.setText("jButton7");
+        jButton67.setText("Buscar cliente");
 
-        jButton69.setText("jButton7");
+        jButton69.setText("Asignar silla");
 
-        jButton71.setText("jButton7");
+        jButton71.setText("Agregar usuario");
 
-        jButton73.setText("jButton7");
+        jButton73.setText("Limpiar silla");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
