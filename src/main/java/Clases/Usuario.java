@@ -10,11 +10,12 @@ package Clases;
  */
 public class Usuario extends Persona{
     private String email;
+    private String contra;
 
-
-    public Usuario(String email, int ced, String nom, int edad, String direcc) {
+    public Usuario(String email, String contra, int ced, String nom, int edad, String direcc) {
         super(ced, nom, edad, direcc);
         this.email = email;
+        this.contra = contra;
     }
     
     
