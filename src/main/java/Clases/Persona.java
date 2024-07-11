@@ -9,6 +9,7 @@ package Clases;
  * @author Melanie Guaman
  */
 public abstract class Persona {
+
     private int ced;
     private String nom;
     private int edad;
@@ -20,5 +21,37 @@ public abstract class Persona {
         this.edad = edad;
         this.direcc = direcc;
     }
-    
+
+    public int getCed() {
+        return ced;
+    }
+
+    public void setCed(int ced) {
+        this.ced = ced;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getDirecc() {
+        return direcc;
+    }
+
+    public void setDirecc(String direcc) {
+        this.direcc = direcc;
+    }
+
 }
