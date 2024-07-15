@@ -24,7 +24,7 @@ public class frm_usuario extends javax.swing.JInternalFrame {
     }
 
     private void PrepararTabla() {
-        String titulos[] = {"E-mail", "Cédula", "Contraseña", "Nombre", "Edad", "Dirección"};
+        String titulos[] = {"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"};
         modelo = new DefaultTableModel(null, titulos);
         tb_usuario.setModel(modelo);
 
@@ -52,12 +52,15 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         txt_edad = new javax.swing.JTextField();
         txt_direccion = new javax.swing.JTextField();
         btn_agg = new javax.swing.JButton();
-        btn_buscar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_editar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_usuario = new javax.swing.JTable();
         btn_ordenar = new javax.swing.JButton();
+
+        setTitle("REGISTRO DE USUARIO");
+        setToolTipText("");
+        setName("Registro de Usuario"); // NOI18N
 
         jLabel1.setText("Email:");
 
@@ -78,11 +81,19 @@ public class frm_usuario extends javax.swing.JInternalFrame {
             }
         });
 
-        btn_buscar.setText("Buscar");
-
         btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
 
         btn_editar.setText("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
 
         tb_usuario.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -104,21 +115,11 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,17 +139,29 @@ public class frm_usuario extends javax.swing.JInternalFrame {
                                     .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_agg)
-                                .addGap(31, 31, 31)
-                                .addComponent(btn_editar)
-                                .addGap(29, 29, 29)
-                                .addComponent(btn_eliminar)
-                                .addGap(32, 32, 32)
-                                .addComponent(btn_buscar)
-                                .addGap(31, 31, 31)
-                                .addComponent(btn_ordenar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                                .addGap(41, 41, 41)
+                                .addComponent(btn_editar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel3))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btn_eliminar)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addComponent(btn_ordenar)
+                                .addGap(27, 27, 27)))
+                        .addGap(9, 9, 9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -177,7 +190,6 @@ public class frm_usuario extends javax.swing.JInternalFrame {
                     .addComponent(btn_agg)
                     .addComponent(btn_editar)
                     .addComponent(btn_eliminar)
-                    .addComponent(btn_buscar)
                     .addComponent(btn_ordenar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,19 +202,19 @@ private static boolean ban = false;
     private void btn_aggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aggActionPerformed
         try {
             if (txt_email.getText().trim().length() > 0) {
-                if (txt_cedula.getText().trim().length() > 0) {
-                    if (txt_contra.getText().trim().length() > 0) {
+                if (txt_contra.getText().trim().length() > 0) {
+                    if (txt_cedula.getText().trim().length() > 0) {
                         if (txt_nombre.getText().trim().length() > 0) {
                             if (txt_edad.getText().trim().length() > 0) {
                                 if (txt_direccion.getText().trim().length() > 0) {
 
-                                    Clases.Usuario obj = new Clases.Usuario(txt_email.getText(), txt_cedula.getText(), txt_contra.getText(), txt_nombre.getText(), Integer.parseInt(txt_edad.getText()),txt_direccion.getText());
+                                    Clases.Usuario obj = new Clases.Usuario(txt_email.getText(), txt_contra.getText(), txt_cedula.getText(), txt_nombre.getText(), Integer.parseInt(txt_edad.getText()), txt_direccion.getText());
                                     if (obj.mtd_guardar() == true) {
                                         if (ban == false) {
                                             if (mtd_duplicados() == false) {
 
                                                 modelo = (DefaultTableModel) tb_usuario.getModel();
-                                                String nuevaFila[] = {obj.getEmail(), obj.getCed(), obj.getContra(), obj.getNom(), String.valueOf(obj.getEdad()), obj.getDirecc()};
+                                                String nuevaFila[] = {obj.getEmail(), obj.getContra(), obj.getCed(), obj.getNom(), String.valueOf(obj.getEdad()), obj.getDirecc()};
                                                 modelo.addRow(nuevaFila);
 
                                                 mtd_lipiartextos();
@@ -212,8 +224,8 @@ private static boolean ban = false;
                                     if (ban == true) {
                                         int filasel = tb_usuario.getSelectedRow();
                                         tb_usuario.setValueAt(txt_email.getText(), tb_usuario.getSelectedRow(), 0);
-                                        tb_usuario.setValueAt(txt_cedula.getText(), tb_usuario.getSelectedRow(), 1);
-                                        tb_usuario.setValueAt(txt_contra.getText(), tb_usuario.getSelectedRow(), 2);
+                                        tb_usuario.setValueAt(txt_contra.getText(), tb_usuario.getSelectedRow(), 1);
+                                        tb_usuario.setValueAt(txt_cedula.getText(), tb_usuario.getSelectedRow(), 2);
                                         tb_usuario.setValueAt(txt_nombre.getText(), tb_usuario.getSelectedRow(), 3);
                                         tb_usuario.setValueAt(txt_edad.getText(), tb_usuario.getSelectedRow(), 4);
                                         tb_usuario.setValueAt(txt_direccion.getText(), tb_usuario.getSelectedRow(), 5);
@@ -249,10 +261,59 @@ private static boolean ban = false;
         }
     }//GEN-LAST:event_btn_aggActionPerformed
 
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        int filsel = tb_usuario.getSelectedRow();
+        if (filsel == -1) {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione una fila!");
+        } else {
+            txt_email.setText(tb_usuario.getValueAt(filsel, 0).toString());
+            txt_contra.setText(tb_usuario.getValueAt(filsel, 1).toString());
+            txt_cedula.setText(tb_usuario.getValueAt(filsel, 2).toString());
+            txt_nombre.setText(tb_usuario.getValueAt(filsel, 3).toString());
+            txt_edad.setText(tb_usuario.getValueAt(filsel, 4).toString());
+            txt_direccion.setText(tb_usuario.getValueAt(filsel, 5).toString());
+
+            txt_cedula.setEnabled(false);
+
+            ban = true;
+        }
+    }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        int filasel = tb_usuario.getSelectedRow();
+        if (filasel == -1) {
+            JOptionPane.showMessageDialog(null, "Por favor, seleccione una fila");
+        } else {
+            modelo = (DefaultTableModel) tb_usuario.getModel();
+            modelo.removeRow(filasel);
+        }
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+    private boolean mtd_duplicados() {
+
+        boolean dublicado = false;
+        for (int i = 0; i < tb_usuario.getRowCount(); i++) {
+
+            if (txt_cedula.getText().equals(tb_usuario.getValueAt(i, 0).toString())) {
+                JOptionPane.showMessageDialog(null, "Ya existe un registro con el mismo número de cédula!");
+                dublicado = true;
+            }
+        }
+        return dublicado;
+    }
+
+    private void mtd_lipiartextos() {
+        txt_email.setText("");
+        txt_contra.setText("");
+        txt_cedula.setText("");
+        txt_nombre.setText("");
+        txt_edad.setText("");
+        txt_direccion.setText("");
+
+        txt_cedula.setEnabled(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agg;
-    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_editar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_ordenar;

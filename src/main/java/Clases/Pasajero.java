@@ -14,7 +14,7 @@ public class Pasajero extends Persona {
     private String clase;
     private int numFicha;
 
-    public Pasajero(int id, String clase, int numFicha, int ced, String nom, int edad, String direcc) {
+    public Pasajero(int id, String clase, int numFicha, String ced, String nom, int edad, String direcc) {
         super(ced, nom, edad, direcc);
         this.id = id;
         this.clase = clase;

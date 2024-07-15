@@ -10,23 +10,23 @@ package Clases;
  */
 public abstract class Persona {
 
-    private int ced;
+    private String ced;
     private String nom;
     private int edad;
     private String direcc;
 
-    public Persona(int ced, String nom, int edad, String direcc) {
+    public Persona(String ced, String nom, int edad, String direcc) {
         this.ced = ced;
         this.nom = nom;
         this.edad = edad;
         this.direcc = direcc;
     }
 
-    public int getCed() {
+    public String getCed() {
         return ced;
     }
 
-    public void setCed(int ced) {
+    public void setCed(String ced) {
         this.ced = ced;
     }
 

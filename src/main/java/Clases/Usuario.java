@@ -27,7 +27,7 @@ public class Usuario extends Persona implements Interface_GuardarBuscar {
     private String email;
     private String contra;
 
-    public Usuario(String email, String contra, int ced, String nom, int edad, String direcc) {
+    public Usuario(String email, String contra, String ced, String nom, int edad, String direcc) {
         super(ced, nom, edad, direcc);
         this.email = email;
         this.contra = contra;
@@ -103,7 +103,7 @@ public class Usuario extends Persona implements Interface_GuardarBuscar {
                     } else if (parts[0].equals("Contraseña")) {
                         this.setContra(parts[1]);
                     } else if (parts[0].equals("Cédula")) {
-                        this.setCed(Integer.parseInt(parts[1]));
+                        this.setCed(parts[1]);
                     } else if (parts[0].equals("Nombre")) {
                         this.setNom(parts[1]);
                     } else if (parts[0].equals("Edad")) {
