@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package Formularios;
+package FormulariosBH;
 
 /**
  *
  * @author Eduardo
  */
-public class frm_silla extends javax.swing.JInternalFrame {
+public class frm_asignarSilla extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frm_silla
+     * Creates new form frm_asignarSilla
      */
-    public frm_silla() {
+    public frm_asignarSilla() {
         initComponents();
     }
 
@@ -26,32 +26,25 @@ public class frm_silla extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        nSilla = new javax.swing.JTextField();
-        claseSilla = new javax.swing.JComboBox<>();
         ubiSilla = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btn_ordenar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         usuario = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        nSilla = new javax.swing.JTextField();
+        claseSilla = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("ASIGNAR SILLA");
-
-        jLabel1.setText("N silla:");
-
-        jLabel2.setText("Ubi silla:");
-
-        jLabel3.setText("Clase silla:");
-
-        claseSilla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economica ", "Ejecutiva" }));
+        setResizable(true);
+        setTitle("Asignar Silla");
 
         ubiSilla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventana", "Centro", "Pasillo", " " }));
 
@@ -65,7 +58,15 @@ public class frm_silla extends javax.swing.JInternalFrame {
 
         btn_ordenar.setText("Ordenar");
 
+        jLabel1.setText("N silla:");
+
         jLabel4.setText("Usuario:");
+
+        jLabel2.setText("Ubi silla:");
+
+        jLabel3.setText("Clase silla:");
+
+        claseSilla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Economica ", "Ejecutiva" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +97,7 @@ public class frm_silla extends javax.swing.JInternalFrame {
                             .addComponent(ubiSilla, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(claseSilla, 0, 190, Short.MAX_VALUE)
                             .addComponent(usuario))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +125,7 @@ public class frm_silla extends javax.swing.JInternalFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(btn_ordenar))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(296, Short.MAX_VALUE))
         );
 
         pack();
