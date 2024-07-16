@@ -64,6 +64,11 @@ public class frm_silla extends javax.swing.JInternalFrame {
         jButton4.setText("Eliminar");
 
         btn_ordenar.setText("Ordenar");
+        btn_ordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ordenarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Usuario:");
 
@@ -96,7 +101,7 @@ public class frm_silla extends javax.swing.JInternalFrame {
                             .addComponent(ubiSilla, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(claseSilla, 0, 190, Short.MAX_VALUE)
                             .addComponent(usuario))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,11 +129,15 @@ public class frm_silla extends javax.swing.JInternalFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(btn_ordenar))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ordenarActionPerformed
+        
+    }//GEN-LAST:event_btn_ordenarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
