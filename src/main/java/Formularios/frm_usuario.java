@@ -4,6 +4,8 @@
  */
 package Formularios;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -109,6 +111,11 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tb_usuario);
 
         btn_ordenar.setText("Ordenar");
+        btn_ordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ordenarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,8 +199,8 @@ public class frm_usuario extends javax.swing.JInternalFrame {
                     .addComponent(btn_eliminar)
                     .addComponent(btn_ordenar))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         pack();
@@ -288,6 +295,34 @@ private static boolean ban = false;
             modelo.removeRow(filasel);
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ordenarActionPerformed
+       // Obtener el modelo de la tabla
+    DefaultTableModel model = (DefaultTableModel) tb_usuario.getModel();
+    
+    // Obtener número de filas de la tabla
+    int numRows = model.getRowCount();
+    
+    // Crear un ArrayList para almacenar los nombres
+    ArrayList<String> nombres = new ArrayList<>();
+    
+    // Leer los nombres de la tabla y guardarlos en el ArrayList
+    for (int i = 0; i < numRows; i++) {
+        String nombre = (String) model.getValueAt(i, 0); // Suponiendo que el nombre está en la columna 0
+        nombres.add(nombre);
+    }
+    
+    // Ordenar alfabéticamente
+    Collections.sort(nombres);
+    
+    // Limpiar la tabla
+    model.setRowCount(0);
+    
+    // Agregar los nombres ordenados de vuelta a la tabla
+    for (String nombre : nombres) {
+        model.addRow(new Object[]{nombre}); // Añadir cada nombre como una nueva fila
+    }
+    }//GEN-LAST:event_btn_ordenarActionPerformed
     private boolean mtd_duplicados() {
 
         boolean dublicado = false;

@@ -76,6 +76,11 @@ public class frm_cliente extends javax.swing.JInternalFrame {
         jButton4.setText("Eliminar");
 
         btn_ordenar.setText("Ordenar");
+        btn_ordenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ordenarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,6 +177,10 @@ public class frm_cliente extends javax.swing.JInternalFrame {
     private void txt_NcedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_NcedulaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_NcedulaActionPerformed
+
+    private void btn_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ordenarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_ordenarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
