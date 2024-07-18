@@ -8,7 +8,7 @@ package AOBasico;
  *
  * @author sebas
  */
-public class AOBasicos {
+public class OrdenamientoShell {
 
 //Ordenación por método shell
     public static void intercambiar(double[] a, int i, int j) {
@@ -39,17 +39,17 @@ public class AOBasicos {
         }
     }
 
-    public static void main(String[] args) {
-        double[] a = {24, 12, 18, 6, 32, 14, 20, 8, 22, 26, 10, 36, 28, 30, 4};
-        System.out.println("La lista inicial es: ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
-        ordenacionShell(a);
-        System.out.println("La lista ordenada resultante es: ");
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }
-
-    }
+//    public static void main(String[] args) {
+//        double[] a = {24, 12, 18, 6, 32, 14, 20, 8, 22, 26, 10, 36, 28, 30, 4};
+//        System.out.println("La lista inicial es: ");
+//        for (int i = 0; i < a.length; i++) {
+//            System.out.println(a[i]);
+//        }
+//        ordenacionShell(a);
+//        System.out.println("La lista ordenada resultante es: ");
+//        for (int i = 0; i < a.length; i++) {
+//            System.out.println(a[i]);
+//        }
+//
+//    }
 }

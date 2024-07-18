@@ -56,6 +56,11 @@ public class frm_silla extends javax.swing.JInternalFrame {
         ubiSilla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventana", "Centro", "Pasillo", " " }));
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Buscar");
 
@@ -138,6 +143,10 @@ public class frm_silla extends javax.swing.JInternalFrame {
     private void btn_ordenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ordenarActionPerformed
         
     }//GEN-LAST:event_btn_ordenarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
