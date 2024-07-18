@@ -6,6 +6,7 @@ package FormulariosBH;
 
 import javax.swing.JOptionPane;
 import Clases.Usuario;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,6 +19,8 @@ public class frm_inicio extends javax.swing.JFrame {
      */
     public frm_inicio() {
         initComponents();
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**

@@ -4,6 +4,8 @@
  */
 package FormulariosBH;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Eduardo
@@ -15,6 +17,8 @@ public class Vuelo extends javax.swing.JFrame {
      */
     public Vuelo() {
         initComponents();
+        initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
