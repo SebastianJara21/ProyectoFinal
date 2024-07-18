@@ -11,20 +11,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Eduardo
  */
-
 public class frm_usuario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frm_usuario
      */
-    
     DefaultTableModel modelo;
     private static boolean ban = false;
+
     public frm_usuario() {
         initComponents();
         PrepararTabla();
     }
-    
+
     private void PrepararTabla() {
         String titulos[] = {"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"};
         modelo = new DefaultTableModel(null, titulos);
@@ -167,7 +166,7 @@ public class frm_usuario extends javax.swing.JInternalFrame {
                                 .addComponent(btn_ordenar)
                                 .addGap(27, 27, 27)))
                         .addGap(9, 9, 9)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,7 +197,7 @@ public class frm_usuario extends javax.swing.JInternalFrame {
                     .addComponent(btn_ordenar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -232,13 +231,13 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btn_editarActionPerformed
 
-    private Boolean verificarCadena(String texto){
+    private Boolean verificarCadena(String texto) {
         return texto.trim().length() > 0;
     }
-    
+
     private void btn_aggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aggActionPerformed
         String email = txt_email.getText();
-        
+
         try {
             if (verificarCadena(email)) {
                 if (txt_contra.getText().trim().length() > 0) {
@@ -276,30 +275,29 @@ public class frm_usuario extends javax.swing.JInternalFrame {
                                     }
 
                                 } else {
-                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su ");
+                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su Dirección");
                                 }
                             } else {
-                                JOptionPane.showMessageDialog(null, "Por favor, ingrese su ");
+                                JOptionPane.showMessageDialog(null, "Por favor, ingrese su Edad ");
                             }
                         } else {
-                            JOptionPane.showMessageDialog(null, "Por favor, ingrese su número de ");
+                            JOptionPane.showMessageDialog(null, "Por favor, ingrese su Nombre ");
                         }
                     } else {
-                        JOptionPane.showMessageDialog(null, "Por favor, ingrese su ");
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese su Cédula");
                     }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su ");
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su Contraseña");
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Por favor, ingrese su ");
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese su Email");
             }
         } catch (Exception ex) {
             //JOptionPane.showMessageDialog(null, ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error de codigo fuente", "Sistema de Autor", JOptionPane.ERROR_MESSAGE);
             JOptionPane.showConfirmDialog(null, "Error: de código fuente", "Sistema de Autor", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
         }
-    }  
-        
+    }
 
     private boolean mtd_duplicados() {
 
@@ -314,7 +312,6 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         return dublicado;
     }
 
-
     private void mtd_lipiartextos() {
         txt_email.setText("");
         txt_contra.setText("");
@@ -324,7 +321,7 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         txt_direccion.setText("");
 
         txt_cedula.setEnabled(true);
-    
+
     }//GEN-LAST:event_btn_aggActionPerformed
 
 
