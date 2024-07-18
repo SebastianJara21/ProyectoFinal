@@ -4,6 +4,14 @@
  */
 package FormulariosBH;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author mdazt
@@ -13,8 +21,19 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
     /**
      * Creates new form BuscarUsuario
      */
+    DefaultTableModel modelo;
+
     public BuscarUsuario() {
         initComponents();
+        PrepararTabla();
+        cargarDatosAlModel();
+    }
+
+    private void PrepararTabla() {
+        String titulos[] = {"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"};
+        modelo = new DefaultTableModel(null, titulos);
+        tbClientes.setModel(modelo);
+
     }
 
     /**
@@ -27,10 +46,10 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        txtBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbClientes = new javax.swing.JTable();
 
         setClosable(true);
         setIconifiable(true);
@@ -40,9 +59,14 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Buscar Usuario");
 
-        jButton2.setText("Buscar");
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -53,23 +77,24 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbClientes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel1)
-                .addGap(55, 55, 55)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,21 +102,124 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public File[] getTxtFiles(String directory) {
+        File dir = new File(directory);
+        if (dir.isDirectory()) {
+            return dir.listFiles((dir1, name) -> name.endsWith(".txt"));
+        }
+        return null;
+    }
+
+    private void cargarDatosAlModel() {
+        PrepararTabla();
+        String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
+        String path = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
+        File[] listaArchivos = getTxtFiles(path);
+        for (File file : listaArchivos) {
+            System.out.println("Contenido del archivo " + file.getName());
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    line = line.replaceAll("\n", "");
+
+                    String[] partes = line.split("=");
+
+                    if (partes[0].equals("E-mail")) {
+                        Email = partes[1];
+                    } else if (partes[0].equals("Contraseña")) {
+                        Contraseña = partes[1];
+                    } else if (partes[0].equals("Cédula")) {
+                        Cedula = partes[1];
+                    } else if (partes[0].equals("Nombre")) {
+                        Nombre = partes[1];
+                    } else if (partes[0].equals("Edad")) {
+                        Edad = partes[1];
+                    } else if (partes[0].equals("Dirección")) {
+                        Direccion = partes[1];
+                    }
+                }
+
+                //"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"
+                String nuevaFila[] = {Email, Contraseña, Cedula, Nombre, Edad, Direccion};
+                modelo.addRow(nuevaFila);
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Error en el Cargar Datos : " + e.getMessage());
+            }
+        }
+
+    }
+
+    private void buscarClienteText(String identificacion) {
+        PrepararTabla();
+        String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
+        String path = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
+        File[] listaArchivos = getTxtFiles(path);
+        for (File file : listaArchivos) {
+            System.out.println("Contenido del archivo " + file.getName());
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    line = line.replaceAll("\n", "");
+
+                    String[] partes = line.split("=");
+
+                    if (partes[0].equals("E-mail")) {
+                        Email = partes[1];
+                    } else if (partes[0].equals("Contraseña")) {
+                        Contraseña = partes[1];
+                    } else if (partes[0].equals("Cédula")) {
+                        Cedula = partes[1];
+                    } else if (partes[0].equals("Nombre")) {
+                        Nombre = partes[1];
+                    } else if (partes[0].equals("Edad")) {
+                        Edad = partes[1];
+                    } else if (partes[0].equals("Dirección")) {
+                        Direccion = partes[1];
+                    }
+                }
+
+                //"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"
+                if (identificacion.equals(Cedula.trim())) {
+                    String nuevaFila[] = {Email, Contraseña, Cedula, Nombre, Edad, Direccion};
+                    modelo.addRow(nuevaFila);
+                }
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Error en el Cargar Datos : " + e.getMessage());
+            }
+        }
+
+    }
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+
+        //CAPTURAR LO QUE PONGA
+        String identificacion = txtBuscar.getText().trim();
+        if (identificacion.trim().equals("")) {
+            cargarDatosAlModel();
+        } else {
+            buscarClienteText(identificacion);
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tbClientes;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

@@ -232,9 +232,15 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btn_editarActionPerformed
 
+    private Boolean verificarCadena(String texto){
+        return texto.trim().length() > 0;
+    }
+    
     private void btn_aggActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aggActionPerformed
+        String email = txt_email.getText();
+        
         try {
-            if (txt_email.getText().trim().length() > 0) {
+            if (verificarCadena(email)) {
                 if (txt_contra.getText().trim().length() > 0) {
                     if (txt_cedula.getText().trim().length() > 0) {
                         if (txt_nombre.getText().trim().length() > 0) {
