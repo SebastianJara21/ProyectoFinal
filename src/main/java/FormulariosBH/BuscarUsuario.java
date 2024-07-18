@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -122,83 +124,73 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
 
     private void cargarDatosAlModel() {
         PrepararTabla();
-        String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
         String path = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
         File[] listaArchivos = getTxtFiles(path);
         for (File file : listaArchivos) {
             System.out.println("Contenido del archivo " + file.getName());
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
+                List<String> data = new ArrayList<>();
                 while ((line = br.readLine()) != null) {
                     line = line.replaceAll("\n", "");
-
                     String[] partes = line.split("=");
-
-                    if (partes[0].equals("E-mail")) {
-                        Email = partes[1];
-                    } else if (partes[0].equals("Contraseña")) {
-                        Contraseña = partes[1];
-                    } else if (partes[0].equals("Cédula")) {
-                        Cedula = partes[1];
-                    } else if (partes[0].equals("Nombre")) {
-                        Nombre = partes[1];
-                    } else if (partes[0].equals("Edad")) {
-                        Edad = partes[1];
-                    } else if (partes[0].equals("Dirección")) {
-                        Direccion = partes[1];
+                    if (partes.length == 2) {
+                        data.add(partes[1]);
                     }
                 }
-
-                //"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"
-                String nuevaFila[] = {Email, Contraseña, Cedula, Nombre, Edad, Direccion};
-                modelo.addRow(nuevaFila);
+                if (data.size() == 6) {
+                    String[] nuevaFila = {data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5)};
+                    modelo.addRow(nuevaFila);
+                }
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Error en el Cargar Datos : " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error en el cargar datos: " + e.getMessage());
             }
         }
-
     }
 
     private void buscarClienteText(String identificacion) {
         PrepararTabla();
-        String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
         String path = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
         File[] listaArchivos = getTxtFiles(path);
         for (File file : listaArchivos) {
             System.out.println("Contenido del archivo " + file.getName());
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
+                String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
                 while ((line = br.readLine()) != null) {
                     line = line.replaceAll("\n", "");
-
                     String[] partes = line.split("=");
-
-                    if (partes[0].equals("E-mail")) {
-                        Email = partes[1];
-                    } else if (partes[0].equals("Contraseña")) {
-                        Contraseña = partes[1];
-                    } else if (partes[0].equals("Cédula")) {
-                        Cedula = partes[1];
-                    } else if (partes[0].equals("Nombre")) {
-                        Nombre = partes[1];
-                    } else if (partes[0].equals("Edad")) {
-                        Edad = partes[1];
-                    } else if (partes[0].equals("Dirección")) {
-                        Direccion = partes[1];
+                    if (partes.length == 2) {
+                        switch (partes[0]) {
+                            case "E-mail":
+                                Email = partes[1];
+                                break;
+                            case "Contraseña":
+                                Contraseña = partes[1];
+                                break;
+                            case "Cédula":
+                                Cedula = partes[1];
+                                break;
+                            case "Nombre":
+                                Nombre = partes[1];
+                                break;
+                            case "Edad":
+                                Edad = partes[1];
+                                break;
+                            case "Dirección":
+                                Direccion = partes[1];
+                                break;
+                        }
                     }
                 }
-
-                //"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"
                 if (identificacion.equals(Cedula.trim())) {
-                    String nuevaFila[] = {Email, Contraseña, Cedula, Nombre, Edad, Direccion};
+                    String[] nuevaFila = {Email, Contraseña, Cedula, Nombre, Edad, Direccion};
                     modelo.addRow(nuevaFila);
                 }
-
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Error en el Cargar Datos : " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Error en el cargar datos: " + e.getMessage());
             }
         }
-
     }
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
