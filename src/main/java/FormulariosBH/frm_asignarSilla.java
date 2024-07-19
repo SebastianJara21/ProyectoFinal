@@ -4,6 +4,8 @@
  */
 package FormulariosBH;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Eduardo
@@ -26,9 +28,13 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         ubiSilla = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btn_ordenar = new javax.swing.JButton();
@@ -40,17 +46,53 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
         nSilla = new javax.swing.JTextField();
         claseSilla = new javax.swing.JComboBox<>();
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setTitle("Asignar Silla");
 
-        ubiSilla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventana", "Centro", "Pasillo", " " }));
+        ubiSilla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventana", "Centro", "Pasillo", "" }));
 
-        jButton1.setText("Agregar");
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Buscar");
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Editar");
 
@@ -76,9 +118,10 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addGap(13, 13, 13)
+                        .addComponent(btnAgregar)
                         .addGap(30, 30, 30)
-                        .addComponent(jButton2)
+                        .addComponent(btnBuscar)
                         .addGap(30, 30, 30)
                         .addComponent(jButton3)
                         .addGap(30, 30, 30)
@@ -97,7 +140,7 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
                             .addComponent(ubiSilla, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(claseSilla, 0, 190, Short.MAX_VALUE)
                             .addComponent(usuario))))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,29 +163,52 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
                     .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnBuscar)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(btn_ordenar))
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:4
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    
+    
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+       // TODO add your handling code here:
+       String usu = usuario.getText().trim();
+       if(usu.isEmpty()){
+           JOptionPane.showMessageDialog(this, "Ingrese un usuario a buscar");
+           return;
+       }
+       
+       
+       
+       
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btn_ordenar;
     private javax.swing.JComboBox<String> claseSilla;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField nSilla;
     private javax.swing.JComboBox<String> ubiSilla;
     private javax.swing.JTextField usuario;

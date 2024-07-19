@@ -32,7 +32,7 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
     }
 
     private void PrepararTabla() {
-        String titulos[] = {"E-mail", "Contraseña", "Cédula", "Nombre", "Edad", "Dirección"};
+        String titulos[] = {"Cédula", "Nombre", "E-mail", "Dirección", "# Silla", "Clase"};
         modelo = new DefaultTableModel(null, titulos);
         tbClientes.setModel(modelo);
 
@@ -124,26 +124,78 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
 
     private void cargarDatosAlModel() {
         PrepararTabla();
-        String path = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
-        File[] listaArchivos = getTxtFiles(path);
-        for (File file : listaArchivos) {
-            System.out.println("Contenido del archivo " + file.getName());
-            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        String pathClientes = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
+        String pathVuelos = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Vuelos";
+        File[] listaArchivosClientes = getTxtFiles(pathClientes);
+        File[] listaArchivosVuelos = getTxtFiles(pathVuelos);
+
+        for (File fileCliente : listaArchivosClientes) {
+            String cedulaCliente = "";
+            String nombreCliente = "";
+            String emailCliente = "";
+            String direccionCliente = "";
+
+            // Leer datos del cliente
+            try (BufferedReader brCliente = new BufferedReader(new FileReader(fileCliente))) {
                 String line;
-                List<String> data = new ArrayList<>();
-                while ((line = br.readLine()) != null) {
+                while ((line = brCliente.readLine()) != null) {
                     line = line.replaceAll("\n", "");
                     String[] partes = line.split("=");
                     if (partes.length == 2) {
-                        data.add(partes[1]);
+                        switch (partes[0]) {
+                            case "Cédula":
+                                cedulaCliente = partes[1];
+                                break;
+                            case "Nombre":
+                                nombreCliente = partes[1];
+                                break;
+                            case "E-mail":
+                                emailCliente = partes[1];
+                                break;
+                            case "Dirección":
+                                direccionCliente = partes[1];
+                                break;
+                        }
                     }
                 }
-                if (data.size() == 6) {
-                    String[] nuevaFila = {data.get(0), data.get(1), data.get(2), data.get(3), data.get(4), data.get(5)};
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "Error al cargar datos del cliente: " + e.getMessage());
+            }
+
+            for (File fileVuelo : listaArchivosVuelos) {
+                String nSilla = "";
+                String claseSilla = "";
+                String usuario = "";
+
+                // Leer datos del vuelo
+                try (BufferedReader brVuelo = new BufferedReader(new FileReader(fileVuelo))) {
+                    String line;
+                    while ((line = brVuelo.readLine()) != null) {
+                        line = line.replaceAll("\n", "");
+                        String[] partes = line.split("=");
+                        if (partes.length == 2) {
+                            switch (partes[0]) {
+                                case "NSilla":
+                                    nSilla = partes[1];
+                                    break;
+                                case "ClaseSilla":
+                                    claseSilla = partes[1];
+                                    break;
+                                case "Usuario":
+                                    usuario = partes[1];
+                                    break;
+                            }
+                        }
+                    }
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "Error al cargar datos del vuelo: " + e.getMessage());
+                }
+
+                // Comprobar si las cédulas coinciden
+                if (cedulaCliente.equals(usuario)) {
+                    String[] nuevaFila = {cedulaCliente, nombreCliente, emailCliente, direccionCliente, nSilla, claseSilla};
                     modelo.addRow(nuevaFila);
                 }
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Error en el cargar datos: " + e.getMessage());
             }
         }
     }
@@ -151,12 +203,15 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
     private void buscarClienteText(String identificacion) {
         PrepararTabla();
         String path = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Clientes";
+        String pathVuelos = "C:\\Users\\Usuario\\OneDrive\\Escritorio\\Vuelos";
+        File[] listaArchivosVuelos = getTxtFiles(pathVuelos);
         File[] listaArchivos = getTxtFiles(path);
+        String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
         for (File file : listaArchivos) {
             System.out.println("Contenido del archivo " + file.getName());
             try (BufferedReader br = new BufferedReader(new FileReader(file))) {
                 String line;
-                String Email = "", Contraseña = "", Cedula = "", Nombre = "", Edad = "", Direccion = "";
+
                 while ((line = br.readLine()) != null) {
                     line = line.replaceAll("\n", "");
                     String[] partes = line.split("=");
@@ -183,15 +238,51 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
                         }
                     }
                 }
-                if (identificacion.equals(Cedula.trim())) {
-                    String[] nuevaFila = {Email, Contraseña, Cedula, Nombre, Edad, Direccion};
-                    modelo.addRow(nuevaFila);
-                }
+
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "Error en el cargar datos: " + e.getMessage());
             }
+
+            for (File fileVuelo : listaArchivosVuelos) {
+                String nSilla = "";
+                String claseSilla = "";
+                String usuario = "";
+
+                // Leer datos del vuelo
+                try (BufferedReader brVuelo = new BufferedReader(new FileReader(fileVuelo))) {
+                    String line;
+                    while ((line = brVuelo.readLine()) != null) {
+                        line = line.replaceAll("\n", "");
+                        String[] partes = line.split("=");
+                        if (partes.length == 2) {
+                            switch (partes[0]) {
+                                case "NSilla":
+                                    nSilla = partes[1];
+                                    break;
+                                case "ClaseSilla":
+                                    claseSilla = partes[1];
+                                    break;
+                                case "Usuario":
+                                    usuario = partes[1];
+                                    break;
+                            }
+                        }
+                    }
+                } catch (IOException e) {
+                    JOptionPane.showMessageDialog(null, "Error al cargar datos del vuelo: " + e.getMessage());
+                }
+
+// Comprobar si las cédulas coinciden
+                if (Cedula.equals(identificacion)) {
+                    if (Cedula.equals(usuario)) {
+                        String[] nuevaFila = {Cedula, Nombre, Email, Direccion, nSilla, claseSilla};
+                        modelo.addRow(nuevaFila);
+                    }
+                }
+            }
         }
     }
+
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
