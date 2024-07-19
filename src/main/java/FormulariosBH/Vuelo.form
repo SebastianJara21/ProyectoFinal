@@ -49,7 +49,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="desktopPane" pref="952" max="32767" attributes="0"/>
+          <Component id="desktopPane" pref="802" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -76,30 +76,30 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="s1" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                          <Component id="s5" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="s5" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="s1" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="s2" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                          <Component id="s6" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="s2" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="s6" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="s3" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="s7" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="s3" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="s8" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                          <Component id="s4" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="s4" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="s8" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -157,7 +157,7 @@
                               <Component id="s47" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="120" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -215,19 +215,20 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="agregarUsuario" min="-2" pref="369" max="-2" attributes="0"/>
-                      <EmptySpace pref="206" max="32767" attributes="0"/>
-                      <Component id="btnBuscarCliente" min="-2" pref="369" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="agregarUsuario" min="-2" pref="369" max="-2" attributes="0"/>
+                          <Component id="asignarSilla" min="-2" pref="369" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="asignarSilla" min="-2" pref="369" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnBuscarCliente" min="-2" pref="369" max="-2" attributes="0"/>
+                          <Component id="jButton73" min="-2" pref="369" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton73" min="-2" pref="369" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -236,17 +237,25 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="s1" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="s2" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="s3" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="s4" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="s1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="s2" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="s4" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="s3" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="s7" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="s5" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="s6" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="s8" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="s5" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="s6" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="s8" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="s7" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -378,6 +387,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton73">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/limpio.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Limpiar silla"/>
               </Properties>
             </Component>
@@ -476,6 +491,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="6"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="s6ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="s2">
               <Properties>
@@ -711,6 +729,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarCliente">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/cliente.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar cliente"/>
               </Properties>
               <Events>
@@ -727,6 +751,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="asignarSilla">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/asignar.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Asignar silla"/>
               </Properties>
               <Events>
@@ -743,6 +773,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="agregarUsuario">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Cambria" size="18" style="1"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Imagenes/agregar-usuario.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Agregar usuario"/>
               </Properties>
               <Events>
