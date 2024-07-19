@@ -314,35 +314,32 @@ public class BuscarUsuario extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DefaultTableModel modelo = (DefaultTableModel) tbClientes.getModel();
-    int rowCount = modelo.getRowCount();
-    String[] nombres = new String[rowCount];
+        int rowCount = modelo.getRowCount();
+        String[] nombres = new String[rowCount];
 
-    // Obtener los nombres de la tabla
-    for (int i = 0; i < rowCount; i++) {
-        nombres[i] = (String) modelo.getValueAt(i, 1); // Asumiendo que la columna de nombres es la segunda (índice 1)
-    }
+        for (int i = 0; i < rowCount; i++) {
+            nombres[i] = (String) modelo.getValueAt(i, 1);
+        }
 
-    // Ordenar los nombres usando Shell Sort
-    shellSort(nombres);
+        shellSort(nombres);
 
-    // Actualizar la tabla con los nombres ordenados
-    for (int i = 0; i < rowCount; i++) {
-        modelo.setValueAt(nombres[i], i, 1); // Actualizar la columna de nombres
-    }
-}
-
-private void shellSort(String[] arr) {
-    int n = arr.length;
-    for (int gap = n / 2; gap > 0; gap /= 2) {
-        for (int i = gap; i < n; i++) {
-            String temp = arr[i];
-            int j;
-            for (j = i; j >= gap && arr[j - gap].compareTo(temp) > 0; j -= gap) {
-                arr[j] = arr[j - gap];
-            }
-            arr[j] = temp;
+        for (int i = 0; i < rowCount; i++) {
+            modelo.setValueAt(nombres[i], i, 1);
         }
     }
+
+    private void shellSort(String[] arr) {
+        int n = arr.length;
+        for (int gap = n / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < n; i++) {
+                String temp = arr[i];
+                int j;
+                for (j = i; j >= gap && arr[j - gap].compareTo(temp) > 0; j -= gap) {
+                    arr[j] = arr[j - gap];
+                }
+                arr[j] = temp;
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
