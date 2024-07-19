@@ -390,9 +390,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/limpio.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Limpiar silla"/>
               </Properties>
             </Component>
@@ -732,9 +729,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/cliente.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Buscar cliente"/>
               </Properties>
               <Events>
@@ -754,9 +748,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria" size="18" style="1"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/asignar.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Asignar silla"/>
               </Properties>
               <Events>
@@ -775,9 +766,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Cambria" size="18" style="1"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Imagenes/agregar-usuario.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Agregar usuario"/>
               </Properties>

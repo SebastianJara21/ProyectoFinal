@@ -100,7 +100,6 @@ public class Vuelo extends javax.swing.JFrame {
         s33.setText("33");
 
         jButton73.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        jButton73.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/limpio.png"))); // NOI18N
         jButton73.setText("Limpiar silla");
 
         s35.setFont(new java.awt.Font("Cambria", 1, 8)); // NOI18N
@@ -232,7 +231,6 @@ public class Vuelo extends javax.swing.JFrame {
         s27.setText("27");
 
         btnBuscarCliente.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        btnBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cliente.png"))); // NOI18N
         btnBuscarCliente.setText("Buscar cliente");
         btnBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,7 +242,6 @@ public class Vuelo extends javax.swing.JFrame {
         s29.setText("29");
 
         asignarSilla.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        asignarSilla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/asignar.png"))); // NOI18N
         asignarSilla.setText("Asignar silla");
         asignarSilla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +253,6 @@ public class Vuelo extends javax.swing.JFrame {
         s28.setText("28");
 
         agregarUsuario.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        agregarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-usuario.png"))); // NOI18N
         agregarUsuario.setText("Agregar usuario");
         agregarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
