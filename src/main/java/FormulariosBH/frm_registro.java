@@ -65,7 +65,6 @@ public class frm_registro extends javax.swing.JFrame {
         jLabel7.setText("Contraseña:");
 
         btn_registrarse.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        btn_registrarse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         btn_registrarse.setText("REGISTRARSE");
         btn_registrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +73,6 @@ public class frm_registro extends javax.swing.JFrame {
         });
 
         txt_iniciarSesion.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
-        txt_iniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-usuario.png"))); // NOI18N
         txt_iniciarSesion.setText("INICIAR SESIÓN");
         txt_iniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

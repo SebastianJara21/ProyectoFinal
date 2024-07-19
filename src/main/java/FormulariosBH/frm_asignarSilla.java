@@ -6,6 +6,7 @@ package FormulariosBH;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Eduardo
@@ -17,14 +18,16 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
      */
     DefaultTableModel modelo;
     private static boolean ban = false;
+
     public frm_asignarSilla() {
         initComponents();
         PrepararTabla();
     }
+
     private void PrepararTabla() {
         String titulos[] = {"N silla", "Usuario", "Ubicacion silla", "Clase Silla"};
         modelo = new DefaultTableModel(null, titulos);
-        tb_asignarSilla.setModel (modelo);
+        tb_asignarSilla.setModel(modelo);
     }
 
     /**
@@ -146,7 +149,6 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jLabel5.setText("ASIGNAR SILLA");
 
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-usuario.png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -159,10 +161,8 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
             }
         });
 
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cliente.png"))); // NOI18N
         btnBuscar.setText("Buscar");
 
-        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,7 +246,7 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAgregarStateChanged
-        
+
     }//GEN-LAST:event_btnAgregarStateChanged
 
     private boolean mtd_duplicados() {
@@ -262,47 +262,46 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
         return dublicado;
     }
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-         if (nSilla.getText().trim().length() > 0) {
+        if (nSilla.getText().trim().length() > 0) {
             if (usuario.getText().trim().length() > 0) {
                 if (ubiSilla.getSelectedItem().toString().trim().length() > 0) {
                     if (claseSilla.getSelectedItem().toString().trim().length() > 0) {
                         Clases.Silla obj = new Clases.Silla(Integer.parseInt(nSilla.getText()), ubiSilla.getSelectedItem().toString(), claseSilla.getSelectedItem().toString());
-                        if (obj.mtd_guardar () == true) {
+                        if (obj.mtd_guardar() == true) {
                             if (ban == false) {
                                 if (mtd_duplicados() == false) {
                                     modelo = (DefaultTableModel) tb_asignarSilla.getModel();
-                                                String nuevaFila[] = {String.valueOf(obj.getNumSilla()), obj.getUbiSilla(), obj.getClaseSilla()};
-                                                modelo.addRow(nuevaFila);
+                                    String nuevaFila[] = {String.valueOf(obj.getNumSilla()), obj.getUbiSilla(), obj.getClaseSilla()};
+                                    modelo.addRow(nuevaFila);
 
-                                                mtd_lipiartextos();
+                                    mtd_lipiartextos();
                                 }
                             }
-                            
+
                         }
                         if (ban == true) {
-                                        int filasel = tb_asignarSilla.getSelectedRow();
-                                        tb_asignarSilla.setValueAt(nSilla.getText(), tb_asignarSilla.getSelectedRow(), 0);
-                                        tb_asignarSilla.setValueAt(ubiSilla.getSelectedItem().toString(), tb_asignarSilla.getSelectedRow(), 1);
-                                        tb_asignarSilla.setValueAt(claseSilla.getSelectedItem().toString(), tb_asignarSilla.getSelectedRow(), 2);
-                                        
+                            int filasel = tb_asignarSilla.getSelectedRow();
+                            tb_asignarSilla.setValueAt(nSilla.getText(), tb_asignarSilla.getSelectedRow(), 0);
+                            tb_asignarSilla.setValueAt(ubiSilla.getSelectedItem().toString(), tb_asignarSilla.getSelectedRow(), 1);
+                            tb_asignarSilla.setValueAt(claseSilla.getSelectedItem().toString(), tb_asignarSilla.getSelectedRow(), 2);
 
-                                        ban = false;
-                                        mtd_lipiartextos();
-                                        usuario.setEnabled(true);
+                            ban = false;
+                            mtd_lipiartextos();
+                            usuario.setEnabled(true);
+                        }
+
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Por favor, seleccione su clase");
                     }
-                    
                 } else {
-                                    JOptionPane.showMessageDialog(null, "Por favor, seleccione su clase");
-                                }
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su ubicacion");
+                }
             } else {
-                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su ubicacion");
-                                }
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese su Dirección");
+            }
         } else {
-                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su Dirección");
-                                }
-         } else {
-                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su numero de silla");
-         }
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese su numero de silla");
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -313,7 +312,6 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
             nSilla.setText(tb_asignarSilla.getValueAt(filsel, 0).toString());
             ubiSilla.setSelectedItem(tb_asignarSilla.getValueAt(filsel, 1));
             claseSilla.setSelectedItem(tb_asignarSilla.getValueAt(filsel, 2));
-            
 
             usuario.setEnabled(false);
 
@@ -321,8 +319,6 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -352,7 +348,6 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
 
     private void mtd_lipiartextos() {
         nSilla.setText("");
-        
 
     }
 }

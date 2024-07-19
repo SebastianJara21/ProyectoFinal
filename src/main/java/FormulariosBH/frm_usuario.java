@@ -67,7 +67,6 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         setToolTipText("");
 
         btn_eliminar.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btn_eliminar.setText("Eliminar");
         btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +77,6 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         jLabel4.setText("Nombre:");
 
         btn_editar.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        btn_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         btn_editar.setText("Editar");
         btn_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +109,6 @@ public class frm_usuario extends javax.swing.JInternalFrame {
         jLabel2.setText("Contraseña:");
 
         btn_agg.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        btn_agg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-usuario.png"))); // NOI18N
         btn_agg.setText("Agregar");
         btn_agg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -354,11 +354,11 @@
                           <Component id="s46" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="agregarUsuario" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
-                          <Component id="btnBuscarCliente" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnBuscarCliente" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="agregarUsuario" alignment="1" min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="asignarSilla" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                           <Component id="jButton73" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
