@@ -5,7 +5,7 @@
 package FormulariosBH;
 
 import javax.swing.JOptionPane;
-
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Eduardo
@@ -15,8 +15,16 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
     /**
      * Creates new form frm_asignarSilla
      */
+    DefaultTableModel modelo;
+    private static boolean ban = false;
     public frm_asignarSilla() {
         initComponents();
+        PrepararTabla();
+    }
+    private void PrepararTabla() {
+        String titulos[] = {"N silla", "Usuario", "Ubicacion silla", "Clase Silla"};
+        modelo = new DefaultTableModel(null, titulos);
+        tb_asignarSilla.setModel (modelo);
     }
 
     /**
@@ -156,6 +164,11 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar.png"))); // NOI18N
         btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnOrdenar.setText("ORDENAR");
 
@@ -164,40 +177,41 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(btnAgregar)
-                .addGap(27, 27, 27)
-                .addComponent(btnBuscar)
-                .addGap(27, 27, 27)
-                .addComponent(btnEditar)
-                .addGap(28, 28, 28)
-                .addComponent(btnOrdenar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(btnAgregar)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnBuscar)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnEditar)
+                        .addGap(28, 28, 28)
+                        .addComponent(btnOrdenar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ubiSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(claseSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(221, 221, 221)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ubiSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(claseSilla, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(221, 221, 221)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -232,13 +246,80 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnAgregarStateChanged
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnAgregarStateChanged
 
+    private boolean mtd_duplicados() {
+
+        boolean dublicado = false;
+        for (int i = 0; i < tb_asignarSilla.getRowCount(); i++) {
+
+            if (usuario.getText().equals(tb_asignarSilla.getValueAt(i, 0).toString())) {
+                JOptionPane.showMessageDialog(null, "Ya existe un registro con el mismo número de cédula!");
+                dublicado = true;
+            }
+        }
+        return dublicado;
+    }
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-        
+         if (nSilla.getText().trim().length() > 0) {
+            if (usuario.getText().trim().length() > 0) {
+                if (ubiSilla.getSelectedItem().toString().trim().length() > 0) {
+                    if (claseSilla.getSelectedItem().toString().trim().length() > 0) {
+                        Clases.Silla obj = new Clases.Silla(Integer.parseInt(nSilla.getText()), ubiSilla.getSelectedItem().toString(), claseSilla.getSelectedItem().toString());
+                        if (obj.mtd_guardar () == true) {
+                            if (ban == false) {
+                                if (mtd_duplicados() == false) {
+                                    modelo = (DefaultTableModel) tb_asignarSilla.getModel();
+                                                String nuevaFila[] = {String.valueOf(obj.getNumSilla()), obj.getUbiSilla(), obj.getClaseSilla()};
+                                                modelo.addRow(nuevaFila);
+
+                                                mtd_lipiartextos();
+                                }
+                            }
+                            
+                        }
+                        if (ban == true) {
+                                        int filasel = tb_asignarSilla.getSelectedRow();
+                                        tb_asignarSilla.setValueAt(nSilla.getText(), tb_asignarSilla.getSelectedRow(), 0);
+                                        tb_asignarSilla.setValueAt(ubiSilla.getSelectedItem().toString(), tb_asignarSilla.getSelectedRow(), 1);
+                                        tb_asignarSilla.setValueAt(claseSilla.getSelectedItem().toString(), tb_asignarSilla.getSelectedRow(), 2);
+                                        
+
+                                        ban = false;
+                                        mtd_lipiartextos();
+                                        usuario.setEnabled(true);
+                    }
+                    
+                } else {
+                                    JOptionPane.showMessageDialog(null, "Por favor, seleccione su clase");
+                                }
+            } else {
+                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su ubicacion");
+                                }
+        } else {
+                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su Dirección");
+                                }
+         } else {
+                                    JOptionPane.showMessageDialog(null, "Por favor, ingrese su numero de silla");
+         }
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        int filsel = tb_asignarSilla.getSelectedRow();
+        if (filsel == -1) {
+            JOptionPane.showMessageDialog(null, "Por favor seleccione una fila!");
+        } else {
+            nSilla.setText(tb_asignarSilla.getValueAt(filsel, 0).toString());
+            ubiSilla.setSelectedItem(tb_asignarSilla.getValueAt(filsel, 1));
+            claseSilla.setSelectedItem(tb_asignarSilla.getValueAt(filsel, 2));
+            
+
+            usuario.setEnabled(false);
+
+            ban = true;
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     
     
@@ -268,4 +349,10 @@ public class frm_asignarSilla extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> ubiSilla;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
+
+    private void mtd_lipiartextos() {
+        nSilla.setText("");
+        
+
+    }
 }
